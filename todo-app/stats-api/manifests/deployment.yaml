@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stats-api
+  labels:
+    app: stats-api
+  namespace: stats-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stats-api
+  template:
+    metadata:
+      labels:
+        app: stats-api
+    spec:
+      containers:
+        - name: stats-api
+          image: mindarodev.azurecr.io/stats-api:cap
+          ports:
+            - containerPort: 80
