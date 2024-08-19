@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tejhan-test
+  namespace: namespace-workflow-1724086554215
+  labels:
+    kubernetes.azure.com/generator: devhub
+spec:
+  type: LoadBalancer
+  selector:
+    app: tejhan-test
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
