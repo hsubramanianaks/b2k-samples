@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tejhan-test
+  labels:
+    app: tejhan-test
+    kubernetes.azure.com/generator: devhub
+  namespace: namespace-workflow-1724086554215
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tejhan-test
+  template:
+    metadata:
+      labels:
+        app: tejhan-test
+    spec:
+      containers:
+        - name: tejhan-test
+          image: acrworkflow1724086554215.azurecr.io/image-workflow-1724086554215:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
